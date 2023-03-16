@@ -1,14 +1,14 @@
 /**
- * *malloc_checked - program startup
- * @s1: first char being evaluated
- * @s2: second char being evalutated
- * n: int being evaluated
-( *
- * Description: concatenates two strings)?
- * Return: return (0) is the required function signature
- */
+* *string_nconcat - concatenates n bytes of a string to another string
+* @s1: string to append to
+* @s2: string to concatenate from
+* @n: number of bytes from s2 to concatenate to s1
+*
+* Return: pointer to the resulting string
+*/
 
 #include "main.h"
+
 char *string_nconcat(char *s1, char *s2, unsigned int n)
 {
 	char *concat;
@@ -30,7 +30,7 @@ char *string_nconcat(char *s1, char *s2, unsigned int n)
 	concat = malloc(sizeof(char) * (length + 1));
 	if (concat == NULL)
 	{
-		return NULL;
+		return (NULL);
 	}
 	length = 0;
 	for (string = 0; s1[string]; string++)
