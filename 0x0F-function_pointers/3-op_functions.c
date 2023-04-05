@@ -1,29 +1,69 @@
-#include <stdlib.h>
-#include <stdio.h>
 #include "3-calc.h"
+#include <stdio.h>
+#include <stdlib.h>
+
 /**
- * get_op_func - matches operator from main
- * @s: op str
- * Return: 0
+ * op_add - function that sums 2 numbers.
+ * @a: number1
+ * @b: number2
+ * Return: the sum of both numbers.
  */
-int (*get_op_func(char *s))(int, int)
+int op_add(int a, int b)
 {
-	op_t op_s[] = {
-		{"+", op_add},
-		{"-", op_sub},
-		{"*", op_mul},
-		{"/", op_div},
-		{"%", op_mod},
-		{NULL, NULL}
-	};
+	return (a + b);
+}
 
-	int i = 0;
+/**
+ * op_sub - function that subtractions two numbers.
+ * @a: number 1.
+ * @b: number 2.
+ * Return: the subtractions of both numbers.
+ */
 
-	while (op_s[i].op)
+int op_sub(int a, int b)
+{
+	return (a - b);
+}
+
+/**
+ * op_mul - function that multiply two numbers.
+ * @a: number 1.
+ * @b: number 2.
+ * Return: the multiply of both numbers.
+ */
+int op_mul(int a, int b)
+{
+	return (a * b);
+}
+
+/**
+ * op_div - function that divide two numbers.
+ * @a: number 1.
+ * @b: number 2.
+ * Return: the division of both numbers.
+ */
+int op_div(int a, int b)
+{
+	if (b <= 0 || b > a)
 	{
-		if (*(op_s[i].op) == *s)
-			return (op_s[i].f);
-		i++;
+		printf("Error\n");
+		exit(100);
 	}
-	return (NULL);
+	return (a / b);
+}
+
+/**
+ * op_mod - function that find the module between two numbers.
+ * @a: number 1.
+ * @b: number 2.
+ * Return: the module of both numbers.
+ */
+int op_mod(int a, int b)
+{
+	if (b <= 0 || b > a)
+	{
+		printf("Error\n");
+		exit(100);
+	}
+	return (a % b);
 }
